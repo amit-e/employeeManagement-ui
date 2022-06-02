@@ -1,0 +1,21 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.task-list {
+  background-color:azure;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  margin-left: 20px;
+}

@@ -1,0 +1,26 @@
+<form [formGroup]="taskForm">
+  <mat-form-field class="form-full-width" appearance="fill">
+    <mat-label>Task Text</mat-label>
+    <input matInput formControlName="taskText" />
+  </mat-form-field>
+<br>
+  <mat-form-field appearance="fill">
+    <mat-label>Due date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="saveTask()"
+  >
+    Save
+  </button>
+</div>

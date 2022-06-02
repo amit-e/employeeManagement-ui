@@ -1,0 +1,41 @@
+<div class="container">
+  <button mat-raised-button color="warn" (click)="openAddEmployeeDialog()">
+    Add Employee
+  </button>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let employee">
+          {{ employee.firstName + " " + employee.lastName }}
+        </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>Position</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.position }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let employee">
+          <a mat-flat-button class="action-button-center" color="primary" (click)="viewEmployee(employee)">
+            View
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      [pageSize]="pageSize"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    ></mat-paginator>
+  </div>
+</div>

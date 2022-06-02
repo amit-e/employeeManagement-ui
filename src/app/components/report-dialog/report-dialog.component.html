@@ -1,0 +1,17 @@
+<form [formGroup]="reportForm">
+    <mat-form-field class="form-full-width" appearance="fill">
+        <mat-label>Report Text</mat-label>
+        <input matInput formControlName="reportText" />
+    </mat-form-field>
+</form>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      (click)="saveReport()"
+    >
+      Save
+    </button>
+  </div>
